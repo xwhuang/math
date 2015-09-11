@@ -135,7 +135,7 @@
     - 离散型随机变量 :: 有些随机变量,它全部可能取到的值是有限个或可列无限多个,这种
       随机变量称为离散型随机变量.设离散型随机变量 $X$ 所有可能取的值为 
       $x_k(k=1,2,\cdots)$, $X$ 取各个可能值的概率,即事件($X=x_{k}$)的概率,为
-      | $$P(X=x_{k}) = p_{k}, k=1,2,\cdots$$ | (2.1) |
+        | $P(X=x_{k}) = p_{k}, k=1,2,\cdots$   | (2.1) |
       由概率的定义, $p_k$ 满足如下两个条件:
       1) $p_k \ge 0, k=1,2,\cdots$ ;
       2) $\sum_{i=1}^{\infty} p_{k} = 1$.
@@ -144,11 +144,29 @@
       | $X$   | \vert | $x_1$ | $x_2$ | \cdots | $x_k$ | \cdots |
       |-------+-------+-------+-------+--------+-------+--------|
       | $P_k$ | \vert | $P_1$ | $P_2$ | \cdots | $P_k$ | \cdots |
+      |       |       |       |       |        |       |        | 
+  
     - 伯努利试验 :: 设试验 $E$ 只有两个可能结果: $A$ 及 $\overline{A}$,则称 $E$ 为
       伯努利试验.设 $P(A)=p(0<p<1)$, 此时 $P(\overline{A}) =1-p$, 将 $E$ 独立重复
       地进行 $n$ 次,则称这一串重复独立试验为 $n$ *重伯努利试验*.
+    - 分布函数 :: 设 $X$ 是一个随机变量, $x$ 是任意实数,函数
+      $$\mathsf{F}(x) = P\{X\le x\}, -\infty < x < \infty$$
+      称为 $X$ 的分布函数.\\
+      对于任意实数 $x_1,x_2(x_1 < x_2)$,有
+      | $P\{x_{1}<X\le x_{2}\}$  | = | $P\{X\le x_2\} - P\{X\le x_1\}$     |
+      |                          | = | $\mathsf{F}(x_2) - \mathsf{F}(x_1)$ |
+      |                          |   |                                     |
+      分布函数 $\mathsf{F}(x)$ 具有以下的基本性质:
+      1. $\mathsf{F}(x)$ 是一个不减函数.对于任意实数 $x_1,x_2(x_1 < x_2)$,有
+	 $$\mathsf{F}(x_2) - \mathsf{F}(x_1) = P\{x_{1}<X\le x_2\} \ge 0$$
 
-*** 模型
+      2. $0 \le \mathsf{F}(x) \le 1$,且
+         $$ \mathsf{F}(-\infty)=\lim{}_{x\rightarrow -\infty}\mathsf{F}(x) = 0$$
+         $$ \mathsf{F}(\infty)=\lim{}_{x\rightarrow \infty}\mathsf{F}(x) = 1$$
+	 $$ \mathsf{F}(x+0) = \mathsf{F}(x)\ $$
+
+
+*** 概率模型
     - (0 --- 1) 分布 :: 设随机变量 $X$ 只可能取0与1两个值,它的分布律是
       $$ P(X=k)=p^{k}(1-p)^{1-k}, k=0,1\ \ (0 < p <1)$$
       则称 $X$ 服从以 $p$ 为参数的 (0 --- 1) 分布或两点分布.
@@ -179,7 +197,18 @@
       特别,当 $n=1$ 时二项分布化为
       $$ P(X=k)=p^{k}q^{1-k}, k=0,1.$$
       这就是 (0---1) 分布.
+    - 泊松分布 :: 设随机变量 $X$ 所有可能取的值为 $0,1,2,\cdots$,而取各个值的概率为
+      $$P(X=k)=\frac{\lambda^{k}\mathsf{e}^{-\lambda}}{k!},k=0,1,2,\cdots$$
+      其中 $\lambda > 0$ 是常数,则称 $X$ 服从参数为 $\lambda$ 的 *泊松分布*, 记为
+      $X \sim \pi (\lambda)$.
+      易知, $P(X=k) \ge 0, k=0,1,2,\cdots$, 且有
+      | $\sum_{k=0}^{\infty}P(X=k)$ | = | $\sum_{k=0}^{\infty} \frac{\lambda^{k}\mathsf{e}^{-\lambda}}{k!}$ |
+      |                             | = | $\mathsf{e}^{-\lambda}\sum_{k=0}^{\infty}\frac{\lambda^k}{k!}$    |
+      |                             | = | $\mathsf{e}^{-\lambda}$ [fn:2]                             |
+      |                             | = | 1                                                                 |
+
 * Footnotes
 
 [fn:1] 用 $e$ 代表样本空间的元素,而样本空间记成 $\{e\}$.
 
+[fn:2] 在数学分析中知道 $\mathsf{e}^{x} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots + \frac{x^k}{k!} + \cdots$
