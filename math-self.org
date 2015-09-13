@@ -232,17 +232,23 @@
      服从指数分布的随机变量 $X$ 具有 *无记忆性*,即对任意 $s,t>0$ ,有
      $$P\{X>s+t\vert X>s\} = P\{X>t\} $$
      事实上
-     | $P\{X>s+t\vert X>s\}$ | = | $\frac{P\{(X>s+t)\bigcap (X>s)\}}{P\{X>s\}}$              |
-     |                       | = | $\frac{P\{X>s+t\}}{P\{X>s\}}$                             |
-     |                       | = | $\frac{1-F(s+t)}{1-F(s)}$                                 |
-     |                       | = | $\frac{e^{\frac{-(s+t)}{\theta}}}{\mathsf{e}^{\frac{-s}{\theta}}}$        |
-     |                       | = | $e^{\frac{-t}{\theta}}$                                   |
-     |                       | = | $P\{X>t\}$                                                |
+     | $P\{X>s+t\vert X>s\}$ | = | $\frac{P\{(X>s+t)\bigcap (X>s)\}}{P\{X>s\}}$ |
+     |                       | = | $\frac{P\{X>s+t\}}{P\{X>s\}}$                |
+     |                       | = | $\frac{1-F(s+t)}{1-F(s)}$                    |
+     |                       | = | $\frac{e^{-(s+t)/ \theta}}{e^{-s/ \theta}}$  |
+     |                       | = | $e^{-t/\theta}$                              |
+     |                       | = | $P\{X>t\}$                                   |
     - 正太分布 :: 若连续型随机变量 $X$ 的概率密度为
       $$f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma{}^2}}.-\infty <x< \infty$$
       其中 $\mu,\sigma (\sigma >0)$ 为常数,则称 $X$ 服从参数为 $\mu,\sigma$ 的 
-      *正太分布* 或 *高斯分布*, 记为 $X \sim N(\mu,\sigma{}^{2})$ .
-
+      *正太分布* 或 *高斯分布*, 记为 $X \sim N(\mu,\sigma{}^{2})$ .\\
+      显然, $f(x) \ge 0$ 下面证明 $\int_{-\infty}^{\infty}f(x)dx=1$, 令 $(x-\mu)/\sigma = t$,
+      得到 
+      \[\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi} \sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx
+        =
+        \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-t^{2}/2}dt.
+      \]
+      记 $I=\int_{-\infty}^{\infty}e^{-t^{2}/2}dt$ ,则有 
 * Footnotes
 
 [fn:1] 用 $e$ 代表样本空间的元素,而样本空间记成 $\{e\}$.
